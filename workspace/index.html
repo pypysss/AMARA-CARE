@@ -131,15 +131,17 @@
     #intro .text {
       flex: 1;
       color: black;
+      font-size:20px;
+      max-width:800px;
     }
 
     #intro img {
-      width: 400px;
+      width: 700px;
       border-radius: 10px;
     }
 
     #intro h2 {
-      font-size: 28px;
+      font-size: 34px;
       margin-bottom: 20px;
     }
 
@@ -162,29 +164,39 @@
     }
 
     /* 对接流程 */
-    #process {
-      background: #f9e6ea;
+        
+ #process {
+      display: none; /* 一开始隐藏 */
+      flex: 1;
+      flex-direction: row;
       align-items: flex-start;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    #process .text {
-      flex: 1.2;
-    }
-
-    #process ol {
-      line-height: 1.8;
-    }
-
-    #process img {
-      width: 380px;
-      border-radius: 10px;
+      background-color: #fce4ec;
+      padding: 40px;
+      font-family: "Microsoft YaHei", sans-serif;
+      color: #000;
     }
 
     #process h2 {
-      font-size: 28px;
+      font-size: 34px;
       margin-bottom: 20px;
+margin-top: 80px;
+
+    }
+
+    #process .text {
+      flex: 1;
+      padding-right: 30px;
+    }
+
+    #process .image {
+      flex: 1;      
+    }
+
+    #process .image img {
+      width: 380px;
+      border-radius: 10px;
+         margin-left:200px;
+     margin-top:150px;
     }
 
     /* 联系我们 */
@@ -192,85 +204,87 @@
       background: pink;
     }
 
-    /* 页脚 */
-    footer {
-      background: #F08080;
-      padding: 40px 80px 20px;
-      border-top: 1px solid #eee;
-      position: relative;
-    }
+ /* 页脚整体 */
+footer {
+  background: #b17171;
+  color: white;
+  padding: 40px 40px; /* 左右间隙变小 */
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", sans-serif;
+  position: relative;
+}
 
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
+/* 页脚容器 */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1600px;
+  margin: 0 auto;
+  gap: 10px; /* 左右内容间隙稍微小一点 */
+}
 
-    .footer-left ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+/* 左边导航 */
+.footer-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .footer-left ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      font-size: 18px;
-      cursor: pointer;
-    }
+.footer-left ul li {
+  margin-bottom: 20px;
+}
 
-    .footer-left ul li {
-      margin-bottom: 18px;
-    }
+.footer-left ul li a {
+ cursor: pointer; /* 鼠标悬停显示手型 */
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+}
 
-    .footer-left ul li a:hover {
-      color: grey;
-    }
+.footer-left ul li a:hover {
+  color: #ddd;
+}
 
-    .footer-right p {
-      margin: 8px 0;
-      color: #fff;
-      font-size: 16px;
-      line-height: 1.6;
-    }
+/* 右边区域 */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative; /* 为 logo 定位做准备 */
+}
 
-    .footer-right a {
-      color: #333;
-      text-decoration: none;
-    }
+/* 联系方式文字 */
+.footer-right p {
+  margin: 5px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
 
-    .footer-right a:hover {
-      color: #922b2b;
-    }
+/* 社交图标 */
+.footer-right .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 图标之间的间距 */
+  margin-top: 10px;
+}
 
-    .social-icons {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-      align-items: center;
-    }
+.footer-right .social-icons img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+}
 
-    .social-icons img {
-      width: 28px;
-      height: 28px;
-    }
+.footer-right .social-icons .footer-logo {
+  width: 180px;
+  height: auto;
+  border-radius: 0; /* logo 不需要圆角 */
+  margin-left:320px
+}
 
-    .footer-logo {
-      padding-left: 60px;
-      text-align: right;
-      margin-top: 20px;
-      margin-left: 400px;
-    }
 
-    .footer-logo img {
-      width: 200px;
-      height: auto;
-    }
     /* 通用版块：默认隐藏 */
     section {
       padding: 160px 80px 80px;
@@ -282,6 +296,10 @@
     section.active {
       display: block; /* 激活时显示 */
     }
+
+   header.white-bg nav ul li a {
+  color: black;
+}
   </style>
 </head>
 <body>
@@ -353,10 +371,11 @@
     <div class="text">
       <h2>月嫂资质介绍</h2>
       <p>
-        我们专业培训的月嫂身体健康，无传染病与不良记录，拥有良好的沟通与适应能力，多年全职母婴护理经验，服务过10+家庭。
+        我们专业培训的月嫂身体健康，无传染病与不良记录，拥有良好的沟通与适应能力，多年全职母婴护理经验，服务过10+家庭。 结合东方细腻护理理念，会多样化月子餐，熟悉营养食材，遵守职业道德规范，能够精心护理产妇与新生儿，一起陪伴初生温馨时光。
+
       </p>
       <p>
-        结合东方细腻护理理念，会多样化月子餐，熟悉营养食材，遵守职业道德规范，能够精心护理产妇与新生儿，一起陪伴初生温馨时光。
+        更多了解每一位月嫂，请到小红书或微信咨询。
       </p>
       <a href="#" class="btn">点击查看</a>
     </div>
@@ -365,26 +384,50 @@
 
   <!-- 对接流程 -->
   <section id="process">
+    <!-- 左边文字 -->
     <div class="text">
       <h2>对接流程</h2>
-      <ol>
-        <li>客户咨询：电话、微信、邮件沟通，登记基本信息。</li>
-        <li>需求确认：了解需求、家庭情况，推荐Amara Care服务内容。</li>
-        <li>月嫂匹配：根据客户需求，从专业月嫂库中筛选。</li>
-        <li>资质与背景核验：查看健康证明与相关资格。</li>
-        <li>服务协议签订：确定价格、服务细节，签署合同。</li>
-        <li>签证与航程准备：协助签证申请与出行安排。</li>
-        <li>上岗服务：月嫂抵达客户家，提供护理。</li>
-        <li>服务回访与支持：结单后收集反馈，优化体验。</li>
-      </ol>
+      <p>1. 客户咨询<br>
+        客户通过电话、微信、邮件或网站提交咨询。客服记录客户基本信息（姓名、联系方式、预产期/产后时间、所在地、所需服务时长及需求重点）。
+      </p>
+      <p>2. 需求确认<br>
+        客服与客户沟通，详细了解需求、家庭情况、特殊要求（饮食习惯、语言偏好、护理重点等）。初步介绍 Amara Care 服务内容与流程，并解答客户疑问。
+      </p>
+      <p>3. 月嫂匹配<br>
+        根据客户需求从国内外专业月嫂库中筛选合适人选。安排月嫂提前与客户进行线上视频面谈，了解性格匹配度及具体护理方案。
+      </p>
+      <p>4. 资质与背景核查<br>
+        月嫂提供专业资质证明（母婴护理证书、健康证明、无犯罪记录、工作经验记录等）。客服审核相关资料后给客户核对，确保透明与可信。
+      </p>
+      <p>5. 服务协议签订<br>
+        确认服务时间、价格、服务范围与细节后，双方签署正式《母婴护理服务协议》，收取定金，锁定月嫂档期。
+      </p>
+      <p>6. 签证及行前准备<br>
+        为月嫂办理签证/机票/短期培训签证，准备行前培训与客户个性化需求清单。安排月嫂出发时间，与客户确认接送及住宿安排。
+      </p>
+      <p>7. 服务实施<br>
+        月嫂按约定日期抵达客户所在地，开展全程母婴护理服务（产前准备、产后恢复、新生儿照护、心理关怀等）。
+      </p>
+      <p>8. 服务回访与支持<br>
+        客服在服务期间定期回访，确保服务质量与客户满意度。服务结束后进行总结反馈，持续优化服务体验。
+      </p>
     </div>
-    <img src="process.jpg" alt="对接流程">
+
+    <!-- 右边图片 -->
+    <div class="image">
+      <img src="process.jpg" alt="对接流程">
+    </div>
   </section>
 
   <!-- 联系我们 -->
   <section id="contact">
-    <h2>联系我们</h2>
-    <p>微信 / 电话 / 邮箱 均可联系我们</p>
+    <h1>具体服务以及周期套餐费用<br/>请联系我们进行咨询:</h1>
+    <br/>
+    <h2 style="font-weight: normal">邮箱：info@amaracare.com</h3>
+<br/>
+ <h2  style="font-weight: normal">微信号：amaracare</h3>
+<br/>
+ <h2 style="font-weight: normal">小红书：amaracare</h3>
   </section>
 
   <!-- 页脚 -->
@@ -393,22 +436,21 @@
       <div class="footer-left">
         <ul>
           <li><a onclick="showSection('services')">专业服务</a></li>
-          <li><a onclick="showSection('intro')">月嫂介绍</a></li>
-          <li><a onclick="showSection('process')">对接流程</a></li>
-          <li><a onclick="showSection('contact')">联系我们</a></li>
+          <li style="margin-top:30px"><a onclick="showSection('intro')">月嫂介绍</a></li>
+          <li style="margin-top:30px"><a onclick="showSection('process')">对接流程</a></li>
+          <li style="margin-top:30px"><a onclick="showSection('contact')">联系我们</a></li>
         </ul>
       </div>
       <div class="footer-right">
         <p>启动月嫂服务 欢迎您的咨询：</p>
-        <p>邮箱：info@amaracare.com</p>
-        <p>微信号：amaracare</p>
-        <p>小红书：amaracare</p>
+        <p>邮箱：info@amaracare.com
+       <br/> 微信号：amaracare
+        <br/>小红书：amaracare</p>
         <div class="social-icons">
           <img src="xiaohongshu.svg" alt="小红书" />
           <img src="wechat.svg" alt="微信" />
-          <div class="footer-logo">
-            <img src="logo.svg" alt="Amara Care Logo" />
-          </div>
+            <img src="logo.svg" alt="Amara Care Logo"  class="footer-logo"/>
+         </div>
         </div>
       </div>
     </div>
@@ -438,8 +480,26 @@
 
   // 添加 active class 方便 CSS 控制其他样式
   current.classList.add("active");
-
+  
   window.scrollTo({ top: 0, behavior: "smooth" });
+// ✅ 动态修改 header 背景色
+  const header = document.querySelector("header");
+  const logo = document.querySelector(".header-logo img"); // 获取logo
+  if (id === "intro" || id === "process" || id === "contact") {
+    header.style.background = "white";
+      logo.src = "logo_black.svg"; // 白底页面用黑色logo
+  } else {
+    header.style.background = "transparent";
+   logo.src = "logo.svg"; // 首页和专业服务用彩色或普通logo
+  }
+
+  // 平滑滚动到顶部
+  window.scrollTo({ top: 0, behavior: "smooth" });
+if (id === "intro" || id === "process" || id === "contact") {
+  header.classList.add("white-bg");
+} else {
+  header.classList.remove("white-bg");
+}
 }
 </script>
   </script>
